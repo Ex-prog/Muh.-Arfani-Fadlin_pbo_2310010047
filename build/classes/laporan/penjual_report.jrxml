@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="penjual_report"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="555"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20"
+              language="java">
+
+    <!-- QUERY -->
+    <queryString>
+        <![CDATA[
+            SELECT id_penjual, id_admin, nama_toko, alamat_toko
+            FROM penjual
+        ]]>
+    </queryString>
+
+    <!-- FIELDS -->
+    <field name="id_penjual" class="java.lang.String"/>
+    <field name="id_admin" class="java.lang.String"/>
+    <field name="nama_toko" class="java.lang.String"/>
+    <field name="alamat_toko" class="java.lang.String"/>
+
+    <!-- TITLE -->
+    <title>
+        <band height="40">
+            <staticText>
+                <reportElement x="0" y="5" width="555" height="30"/>
+                <textElement textAlignment="Center">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[LAPORAN DATA PENJUAL]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <!-- COLUMN HEADER -->
+    <columnHeader>
+        <band height="25">
+
+            <staticText>
+                <reportElement x="0" y="5" width="80" height="20"/>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID Penjual]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="80" y="5" width="80" height="20"/>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID Admin]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="160" y="5" width="170" height="20"/>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Nama Toko]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="330" y="5" width="225" height="20"/>
+                <textElement textAlignment="Center">
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Alamat Toko]]></text>
+            </staticText>
+
+        </band>
+    </columnHeader>
+
+    <!-- DETAIL -->
+    <detail>
+        <band height="22">
+
+            <textField>
+                <reportElement x="0" y="3" width="80" height="16"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{id_penjual}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="80" y="3" width="80" height="16"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{id_admin}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="160" y="3" width="170" height="16"/>
+                <textFieldExpression><![CDATA[$F{nama_toko}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="330" y="3" width="225" height="16"/>
+                <textFieldExpression><![CDATA[$F{alamat_toko}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </detail>
+
+</jasperReport>
